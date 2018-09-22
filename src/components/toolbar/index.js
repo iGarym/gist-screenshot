@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
-import ThemeSelect from '../theme-select';
-import ModeSelect from '../mode-select';
-import FontSetting from '../font-setting';
-import StyleSetting from '../style-setting';
-import ExportSetting from '../export-setting';
-import Export from '../export';
+
+import Export from '@components/export';
+import ModeSelect from '@components/mode-select';
+import ThemeSelect from '@components/theme-select';
+import FontSetting from '@components/font-setting';
+import StyleSetting from '@components/style-setting';
+import ExportSetting from '@components/export-setting';
 import './index.less';
 
 class Toolbar extends Component {

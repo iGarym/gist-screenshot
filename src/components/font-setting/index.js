@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Popover } from 'antd';
-import MyIcon from '../my-icon';
+import MyIcon from '@components/my-icon';
 
 class FontSetting extends Component {
   render() {
