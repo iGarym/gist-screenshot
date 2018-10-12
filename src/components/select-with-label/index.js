@@ -21,7 +21,7 @@ class SelectWithLabel extends Component {
         {label}：
         <Select {...props}>
           {options.map(item => (
-            <Option value={item.id} key={item.id}>
+            <Option value={item.value} key={item.value}>
               {item.label}
             </Option>
           ))}
