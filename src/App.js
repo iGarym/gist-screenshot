@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Toolbar from '@components/toolbar';
 import Preview from '@components/preview';
 import store from '@utils/store';
-import '@styles/App.less';
 
 class App extends Component {
   state = {
