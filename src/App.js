@@ -5,8 +5,8 @@ import store from '@utils/store';
 
 class App extends Component {
   state = {
-    mode: 'javascript',
-    modes: [
+    language: 'javascript',
+    languages: [
       { label: 'Bash', value: 'bash' },
       { label: 'Clojure', value: 'clojure' },
       { label: 'C++', value: 'cpp' },
@@ -275,8 +275,8 @@ class App extends Component {
     text: ''
   };
 
-  onModeChange = mode => {
-    const payload = { mode };
+  onLanguageChange = language => {
+    const payload = { language };
     this.setState(payload);
     this.storeSetting(payload);
   };
@@ -286,10 +286,10 @@ class App extends Component {
   };
 
   storeSetting = payload => {
-    const { mode, theme } = this.state;
+    const { language, theme } = this.state;
     store.set('setting', {
-      mode,
       theme,
+      language,
       ...payload
     });
   };
@@ -297,20 +297,25 @@ class App extends Component {
   componentDidMount() {
     const data = store.get('setting');
     if (!data) return;
-    const { mode, theme } = data;
-    this.setState({ mode, theme });
+    const { language, theme } = data;
+    this.setState({ language, theme });
   }
 
   render() {
-    const { mode, modes, theme, themes } = this.state;
-    const barProps = { mode, modes, theme, themes };
+    const { language, languages, theme, themes } = this.state;
+    const { onLanguageChange, onThemeChange } = this;
+    const barProps = {
+      theme,
+      themes,
+      language,
+      languages,
+      onThemeChange,
+      onLanguageChange
+    };
+
     return (
       <div className="App">
-        <Toolbar
-          {...barProps}
-          onModeChange={this.onModeChange}
-          onThemeChange={this.onThemeChange}
-        />
+        <Toolbar {...barProps} />
         <Preview />
       </div>
     );

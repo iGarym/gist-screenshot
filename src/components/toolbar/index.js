@@ -11,20 +11,20 @@ import './index.less';
 class Toolbar extends Component {
   render() {
     const {
-      mode,
-      modes,
+      language,
+      languages,
       theme,
       themes,
-      onModeChange,
-      onThemeChange
+      onThemeChange,
+      onLanguageChange
     } = this.props;
 
-    const modeProps = {
-      label: 'Mode',
-      value: mode,
-      options: modes,
+    const languageProps = {
+      label: 'Language',
+      value: language,
+      options: languages,
       placeholder: '请选择语言',
-      onChange: onModeChange
+      onChange: onLanguageChange
     };
     const themeProps = {
       label: 'Theme',
@@ -36,7 +36,7 @@ class Toolbar extends Component {
 
     return (
       <div className="toolbar">
-        <SelectWithLabel {...modeProps} />
+        <SelectWithLabel {...languageProps} />
         <SelectWithLabel {...themeProps} />
         <ButtonWithPopover
           icon="icon-fontsize"
