@@ -272,7 +272,7 @@ class App extends Component {
         value: 'zenburn'
       }
     ],
-    text: ''
+    code: ''
   };
 
   onLanguageChange = language => {
@@ -283,6 +283,10 @@ class App extends Component {
 
   onThemeChange = theme => {
     this.setState({ theme });
+  };
+
+  onCodeChange = code => {
+    this.setState({ code });
   };
 
   storeSetting = payload => {
@@ -302,8 +306,8 @@ class App extends Component {
   }
 
   render() {
-    const { language, languages, theme, themes } = this.state;
-    const { onLanguageChange, onThemeChange } = this;
+    const { code, language, languages, theme, themes } = this.state;
+    const { onLanguageChange, onThemeChange, onCodeChange } = this;
     const barProps = {
       theme,
       themes,
@@ -312,11 +316,17 @@ class App extends Component {
       onThemeChange,
       onLanguageChange
     };
+    const codeProps = {
+      theme,
+      language,
+      value: code,
+      onChange: onCodeChange
+    };
 
     return (
       <div className="App">
         <Toolbar {...barProps} />
-        <Preview />
+        <Preview {...codeProps} />
       </div>
     );
   }

@@ -2,6 +2,7 @@ const path = require('path');
 const rewireLess = require('react-app-rewire-less');
 const rewireAliases = require('react-app-rewire-aliases');
 const { paths, injectBabelPlugin } = require('react-app-rewired');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 const resolve = dir => path.resolve(__dirname, `${paths.appSrc}/${dir}/`);
 
@@ -25,5 +26,8 @@ module.exports = (config, env) => {
       // '@primary-color': '#1890ff'
     }
   })(config, env);
+
+  config.plugins.push(new MonacoWebpackPlugin());
+
   return config;
 };

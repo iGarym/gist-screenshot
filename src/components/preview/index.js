@@ -9,7 +9,7 @@ class Preview extends Component {
       <div className="preview">
         <div className="container">
           <Controls />
-          <IDE />
+          <IDE {...this.props} />
         </div>
       </div>
     );
